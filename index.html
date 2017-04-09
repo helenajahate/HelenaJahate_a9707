@@ -1,0 +1,58 @@
+<html></html>
+<!DOCTYPE html>
+<html>
+    <head>
+         <title>PROPOSTA COMPONENTE WEB</title>
+        <link rel="stylesheet" href="style.css"> 
+         <!-- FONTES-->
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:400,700|Open+Sans" rel="stylesheet">
+        <meta charset="utf-8">
+    </head>
+    
+    <body> 
+        <div class="terra"></div>
+        <div class="nuvemblur1"></div>
+        <div class="nuvemblur2"></div>
+        <div class="balao1"></div>
+        <div class="sol1"></div>
+        <div class="nuvemn1"></div>
+        <div class="nuvemn2"></div>        
+    </body>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    
+    <script>    
+        $(window).on('scroll', function () 
+        {
+            var scrollTop = $(window).scrollTop();
+
+            if(scrollTop < 5) //Se scroll no topo tudo fica na posição original
+            {
+                //alert("if0");
+                $('.nuvemblur1').stop().animate({top:"50%", width: "700px", height: "600px"},50); 
+                $('.nuvemblur2').stop().animate({left:"70%"},50); 
+                $('.terra').stop().animate({top:"60%"},50); 
+                $('.balao1').stop().animate({top:"35%", left: "65%"},50); 
+            }
+
+            //&& -> Significa um E / AND
+            //|| -> Significa um OU / OR
+            if (scrollTop > 5 && scrollTop < 120) //Se scroll maior que 5 e menor que 120 mexe nuvem 1
+            {
+                //alert("if1");
+                $('.nuvemblur1').stop().animate({top:"80%", width: "750px", height: "800px"},50);
+                //$('.nuvemblur2').stop().animate({left:"73%"},50);
+                //$('.terra').stop().animate({top:"68%"},50);
+                //$('.balao1').stop().animate({top:"30%", left: "60%"},50);
+            }
+
+            if (scrollTop > 120) //Se scroll maior que 120 mexe nuvem 2
+            {
+                //alert("if2");
+                //$('.nuvemblur1').stop().animate({top:"90%", width: "750px", height: "800px"},50);
+                $('.nuvemblur2').stop().animate({left:"90%"},40);
+                //$('.terra').stop().animate({top:"68%"},50);
+                //$('.balao1').stop().animate({top:"30%", left: "60%"},50); 
+            }
+        });
+    </script>
